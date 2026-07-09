@@ -19,3 +19,20 @@ Verity.setStayInScreen(true)
 Verity.ay = 250
 tiles.setCurrentTilemap(tilemap`nivel1`)
 maxSalto = 2
+game.onUpdate(function () {
+    Verity.setImage(assets.image`Right`)
+    if (Verity.vx == 0) {
+        Verity.setImage(assets.image`idle`)
+    }
+    if (Verity.vy < 0) {
+        Verity.setImage(assets.image`miImagen1`)
+    } else if (Verity.vy > 0) {
+        Verity.setImage(assets.image`VerityLaBolaAmarilla0saltando`)
+    } else if (Verity.vx > 0) {
+        Verity.setImage(assets.image`Right`)
+    }
+    if (Verity.vx < 0) {
+        Verity.image.flipX()
+        Verity.setImage(Verity.image)
+    }
+})
